@@ -69,7 +69,6 @@ void sortQuick(int A[], int lo, int hi) { // Ordenar el arreglo A
     sortQuick(A, j + 1, hi); // Ordenar la segunda mitad
 }
 
-
 vector<int> quickSort(vector<int> datos) { // Ordenar los datos con Quick Sort
     int n = datos.size(); // Cantidad de datos
     int A[n]; // Arreglo para almacenar los datos
@@ -115,8 +114,10 @@ int main() { // Función principal
     vector<int> datos, datosOrdenados; // Declarar los vectores datos y datosOrdenados
     datos = leeDatos("datos.txt"); // Leer los datos desde el archivo
     imprimeDatos(datos); // datos desordenados
+    // Merge Sort tiene una complejidad computacional de O(n log n)
     datosOrdenados = mergeSort(datos); // Ordenar los datos con Merge Sort
     imprimeDatos(datosOrdenados); // datos ordenados con Merge Sort
+    // Quick Sort tiene una complejidad computacional de O(n^2), normalmente es O(n log n)
     datosOrdenados = quickSort(datos); // Ordenar los datos con Quick Sort
     imprimeDatos(datosOrdenados);  // datos ordenados con Quick Sort
     return 0; // Terminar el programa
