@@ -1,37 +1,37 @@
-# Actividad 1.2 Implementación de la técnica de programación "Programación dinámica" y "algoritmos avaros"
+Instrucciones
+Utilizando la técnica de programación de "backtracking" y la de "ramificación y poda", escribe un programa  en C++ que resuelva un laberinto.
 
-### Instrucciones
+El programa debe tener al menos 4 funciones:
 
-Utilizando las técnicas de programación de "programación dinámica", y la de "algoritmos avaros", escribe en C++ un programa que resuelva el problema del cambio de monedas.
+void leeArchivo(string archivo): lee un archivo con la información requerida y la deja en variables globales. El archivo contiene la siguiente información:
 
-El programa recibe un numero entero N, seguido de N valores enteros (uno en cada línea) por la entrada estándar (teclado), que representan las diferentes denominaciones disponibles de las monedas. 
+La primera línea contiene dos nímeros enteros M y N, separados por un espacio, seguido de M líneas de N valores booleanos(0|1) separados por un espacio, que representan el laberinto.  Un 1 representa una casilla en la que es posible moverse, un 0 es una casilla por la que NO se puede pasar.
+El origen o casilla de inicio es siempre la casilla (0,0) y la salida o meta es siempre la casilla (M-1, N-1)
 
-Seguido de esto, el programa recibe dos números enteros: P y Q, (uno en cada línea) por la entrada estándar, que representan P: el precio de un producto dado y Q: es el billete o moneda con el que se paga dicho producto. Obviamente, el valor a convertir es el cambio, es decir, el valor Q - P.
+void imprimeSolución(): imprime a la pantalla las soluciones (matrices globales) encontradas, como salida del programa. Esta salida es una matriz de valores booleanos (0|1) que representan el camino para salir del laberinto. Primero debe mostrarse la solución utilizando la técnica de backtracking, y luego utilizando la técnica de ramificación y poda.
 
-La salida del programa es una impresión de N valores correspondientes al número de monedas de cada denominación, de mayor a menor, una en cada línea, que se tienen que dar para dar el cambio por el producto pagado, primero utilizando programación dinámica, y luego utilizando un algoritmo avaro.
+backtracking(): resuelve el laberinto usando la técnica de backtracking y la deja en una matriz de salida (que es una variable global).
 
-El programa deberá tener 3 funciones obligatorias:
+branchAndBound(): resuelve el laberinto usando la técnica de ramificación y poda y la deja en una matriz de salida (que es una variable global).
 
-minNumMonGR(int n): recibe un entero que es la cantidad a ser cambiada a monedas y regresa una lista con el números de monedas de cada tipo que se usaron para formar la cantidad, usando el algoritmo Greedy.
+para guardar el laberinto y las soluciones, se pueden usar arreglos de 2D (matrices) o vectores. Esto va a ser transparente para el usuario. 
 
-minNumMonDP(int n): recibe un entero que es la cantidad a ser cambiada a monedas y regresa una lista con el números de monedas de cada tipo que se usaron para formar la cantidad, usando el algoritmo de Programación Dinámica.
+ejemplo de entrada:
+4 4
+1 0 0 0
+1 1 0 1
+0 1 0 0
+1 1 1 1
 
-escribeRespuesta(int n): recibe un entero que es la cantidad a ser cambiada a monedas e imprime, a la salida estándar (la pantalla) las soluciones obtenidas por Greedy y por Programación Dinámica. La impresión se realiza de la forma descrita arriba.
+ejemplo de salida:
+1 0 0 0
+1 1 0 0
+0 1 0 0
+0 1 1 1
 
-La función main deberá pedir, usando letreros, los valores a ser usados, de acuerdo a lo descrito anteriormente (exactamente en el orden indicado anteriormente) y debe llamar a la función escribeRespuesta(Q-P), la cual deberá llamar a su vez las dos funciones de los dos diferentes algoritmos (minNumMonGR(n) y minNumMonDP(n)) e imprimir la respuesta con un letrero que indique a qué algoritmo se refiere.
+1 0 0 0
+1 1 0 0
+0 1 0 0
+0 1 1 1
 
-Por ejemplo, si en un país tenemos monedas de 50, 25, 20, 10, 5 y 1 centavos, el precio P del producto es 20 centavos y se paga con 60 centavos (es sólo para que de 40 que fue el ejercicio que hicimos en clase), el programa deberá imprimir:
-
-Usando Greedy:
-
-1 moneda de 25
-
-1 moneda de 10
-
-1 moneda de 5
-
-Usando Programación Dinámica:
-
-2 monedas de 20
-
-Sube un archivo ZIP que se llame <tu_matricula>_Act1.2.ZIP. Es posible tener más archivos dentro de la carpeta.
+Sube todos tus archivos en un ZIP que se llame <tumatricula_Act1.3>.ZIP. Tu programa se debe llamar <tumatricula_Act1.3>.cpp.
