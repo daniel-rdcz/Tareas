@@ -1,37 +1,14 @@
-Instrucciones
-Utilizando la técnica de programación de "backtracking" y la de "ramificación y poda", escribe un programa  en C++ que resuelva un laberinto.
+## Instrucciones
+Escribe un programa en C++ que reciba el nombre de un archivo de texto, seguido de un entero n, donde n es un entero múltiplo de 4 y  (16 <= n <=64)
 
-El programa debe tener al menos 4 funciones:
+La salida es una cadena de longitud n/4 que es una representación hexadecimal que corresponde al hasheo del archivo de texto de entrada de acuerdo con las siguientes reglas:
 
-void leeArchivo(string archivo): lee un archivo con la información requerida y la deja en variables globales. El archivo contiene la siguiente información:
+El entero n determina el número de columnas que contendrá una tabla donde se irán acomodando los caracteres del archivo de texto(incluyendo saltos de líneas) en los renglones que sean necesarios.
 
-La primera línea contiene dos nímeros enteros M y N, separados por un espacio, seguido de M líneas de N valores booleanos(0|1) separados por un espacio, que representan el laberinto.  Un 1 representa una casilla en la que es posible moverse, un 0 es una casilla por la que NO se puede pasar.
-El origen o casilla de inicio es siempre la casilla (0,0) y la salida o meta es siempre la casilla (M-1, N-1)
+Si el numero de caracteres en el archivo de entrada no es múltiplo de n, el último renglón se "rellena" con el valor de n.
 
-void imprimeSolución(): imprime a la pantalla las soluciones (matrices globales) encontradas, como salida del programa. Esta salida es una matriz de valores booleanos (0|1) que representan el camino para salir del laberinto. Primero debe mostrarse la solución utilizando la técnica de backtracking, y luego utilizando la técnica de ramificación y poda.
+En un arreglo a de longitud n se calcula a[i] = (la suma de los ASCII de cada char en la columna) % 256.
 
-backtracking(): resuelve el laberinto usando la técnica de backtracking y la deja en una matriz de salida (que es una variable global).
+La salida se genera concatenando la representación hexadecimal (mayúsculas) a dos dígitos de cada posición en el arreglo. La longitud de la cadena de salida será de n/4.
 
-branchAndBound(): resuelve el laberinto usando la técnica de ramificación y poda y la deja en una matriz de salida (que es una variable global).
-
-para guardar el laberinto y las soluciones, se pueden usar arreglos de 2D (matrices) o vectores. Esto va a ser transparente para el usuario. 
-
-ejemplo de entrada:
-4 4
-1 0 0 0
-1 1 0 1
-0 1 0 0
-1 1 1 1
-
-ejemplo de salida:
-1 0 0 0
-1 1 0 0
-0 1 0 0
-0 1 1 1
-
-1 0 0 0
-1 1 0 0
-0 1 0 0
-0 1 1 1
-
-Sube todos tus archivos en un ZIP que se llame <tumatricula_Act1.3>.ZIP. Tu programa se debe llamar <tumatricula_Act1.3>.cpp.
+Tu programa debe ser llamado <TuMatricula>_2.1.cpp.
