@@ -1,37 +1,48 @@
-Instrucciones
-Utilizando la técnica de programación de "backtracking" y la de "ramificación y poda", escribe un programa  en C++ que resuelva un laberinto.
+## Instrucciones
+Escribe un programa en C++ que implemente los algoritmos de Dijkstra y Floyd para encontrar la distancia más corta entre parejas de nodos en un grafo dirigido. 
 
-El programa debe tener al menos 4 funciones:
+El programa debe leer un archivo texto con el siguiente formato:
 
-void leeArchivo(string archivo): lee un archivo con la información requerida y la deja en variables globales. El archivo contiene la siguiente información:
+En la primera fila hay dos números n (número de nodos) y m (número de aristas dirigidas).
+Los siguientes m renglones contienen todas las aristas, una en cada renglón, con 3 valores a b c, separados por espacios. a es el nodo inicial de la arista, b es el nodo final de la arista y c es el peso de dicha arista.
+El programa debe tener una función que lee el archivo y lo coloca en una lista de adyacencia.
 
-La primera línea contiene dos nímeros enteros M y N, separados por un espacio, seguido de M líneas de N valores booleanos(0|1) separados por un espacio, que representan el laberinto.  Un 1 representa una casilla en la que es posible moverse, un 0 es una casilla por la que NO se puede pasar.
-El origen o casilla de inicio es siempre la casilla (0,0) y la salida o meta es siempre la casilla (M-1, N-1)
+La salida del programa es, primero con el algoritmo de Dijkstra la distancia del nodo i al nodo j, donde j toma los valores de todos los nodos, y luego, la matriz resultado del algoritmo de Floyd
 
-void imprimeSolución(): imprime a la pantalla las soluciones (matrices globales) encontradas, como salida del programa. Esta salida es una matriz de valores booleanos (0|1) que representan el camino para salir del laberinto. Primero debe mostrarse la solución utilizando la técnica de backtracking, y luego utilizando la técnica de ramificación y poda.
+Ejemplo de entrada:
 
-backtracking(): resuelve el laberinto usando la técnica de backtracking y la deja en una matriz de salida (que es una variable global).
+4 8
+0 1 2
+0 3 3
+1 2 1
+1 3 5
+2 0 2
+2 1 3
+3 0 3
+3 2 4
 
-branchAndBound(): resuelve el laberinto usando la técnica de ramificación y poda y la deja en una matriz de salida (que es una variable global).
+Lo cual es equivalente a la matriz de adyacencia:
+0 2 -1 3
+-1 0 1 5
+2 3 0 -1
+3 -1 4 0
 
-para guardar el laberinto y las soluciones, se pueden usar arreglos de 2D (matrices) o vectores. Esto va a ser transparente para el usuario. 
+Ejemplo de salida:
 
-ejemplo de entrada:
-4 4
-1 0 0 0
-1 1 0 1
-0 1 0 0
-1 1 1 1
+Dijkstra :
+node 1 to node 2 : 2
+node 1 to node 3 : 3
+node 1 to node 4 : 3
+node 2 to node 1 : 3
+...
 
-ejemplo de salida:
-1 0 0 0
-1 1 0 0
-0 1 0 0
-0 1 1 1
+node 4 to node 2 : 5
+node 4 to node 3 : 4
 
-1 0 0 0
-1 1 0 0
-0 1 0 0
-0 1 1 1
+Floyd :
+0 2 3 3
+3 0 1 5
+2 3 0 5
+3 5 4 0
 
-Sube todos tus archivos en un ZIP que se llame <tumatricula_Act1.3>.ZIP. Tu programa se debe llamar <tumatricula_Act1.3>.cpp.
+Tu programa debe ser llamado <TuMatrícula>_3.2.cpp.
